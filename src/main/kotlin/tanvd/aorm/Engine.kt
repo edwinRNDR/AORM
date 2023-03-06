@@ -32,10 +32,18 @@ sealed class Engine {
                     (order_by?.let { "ORDER BY (${it.joinToString { it.toQueryQualifier() }}) " } ?: "") +
                     (sample_by?.let { "SAMPLE BY ${it.toQueryQualifier()} " } ?: "")
 
-        override fun toSqlDef() = if (extendedSyntaxUsed)
-            "${familyModifier}MergeTree(${specificParams?.let { it } ?: ""}) $extendedSyntaxDef"
-        else
-            "${familyModifier}MergeTree($mainSyntaxDef${specificParams?.let { ", $it" } ?: ""})"
+        override fun toSqlDef() = run {
+            val res =
+            if (extendedSyntaxUsed) {
+                error("not supported")
+                "${familyModifier}MergeTree(${specificParams?.let { it } ?: ""}) $extendedSyntaxDef"
+            }
+            else {
+                "${familyModifier}MergeTree() PARTITION BY toYYYYMMDD(${dateColumn.toQueryQualifier()}) ORDER BY (${primaryKey.joinToString { it.toQueryQualifier() }})"
+            }
+            res
+        }
+
 
 
         override fun toReplicatedSqlDef(index: Int): String = zookeeperPath?.let { zookeeperPath ->
