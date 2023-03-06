@@ -1,9 +1,10 @@
 package tanvd.aorm
 
-import ru.yandex.clickhouse.ClickHouseUtil
+
 import tanvd.aorm.expression.Column
 import tanvd.aorm.expression.Expression
 import tanvd.aorm.query.Query
+import tanvd.aorm.utils.ClickHouseUtil
 import java.util.*
 import kotlin.reflect.KClass
 

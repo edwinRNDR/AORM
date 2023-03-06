@@ -2,11 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 import tanvd.kosogor.proxy.publishJar
 
 group = "tanvd.aorm"
-version = "1.1.15"
+version = "1.1.16"
 
 plugins {
     kotlin("jvm") version "1.7.10" apply true
-    id("tanvd.kosogor") version "1.0.15"
+    id("tanvd.kosogor") version "1.0.18"
 }
 
 val artifactoryUploadEnabled = System.getenv("artifactory_url") != null
@@ -19,15 +19,16 @@ repositories {
 
 dependencies {
     api(kotlin("stdlib"))
-    api("com.clickhouse", "clickhouse-jdbc", "0.3.2-patch11")
-    api("joda-time", "joda-time", "2.11.1")
+    api("com.clickhouse", "clickhouse-jdbc", "0.4.1")
+    api("com.clickhouse", "clickhouse-client", "0.4.1")
+    api("joda-time", "joda-time", "2.12.2")
     api("org.slf4j", "slf4j-api", "1.7.36")
 
-    testImplementation("org.junit.jupiter", "junit-jupiter-api", "5.8.2")
-    testImplementation("org.junit.jupiter", "junit-jupiter-engine", "5.8.2")
+    testImplementation("org.junit.jupiter", "junit-jupiter-api", "5.9.2")
+    testImplementation("org.junit.jupiter", "junit-jupiter-engine", "5.9.2")
 
-    testImplementation("org.testcontainers", "testcontainers", "1.17.5")
-    testImplementation("org.testcontainers", "clickhouse", "1.17.5")
+    testImplementation("org.testcontainers", "testcontainers", "1.17.6")
+    testImplementation("org.testcontainers", "clickhouse", "1.17.6")
 }
 
 tasks.withType<JavaCompile> {

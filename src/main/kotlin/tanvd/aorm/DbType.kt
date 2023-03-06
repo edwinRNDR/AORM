@@ -3,7 +3,8 @@ package tanvd.aorm
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
-import ru.yandex.clickhouse.ClickHouseUtil
+import tanvd.aorm.utils.ClickHouseUtil
+
 import java.math.BigDecimal
 import java.sql.*
 import java.text.SimpleDateFormat

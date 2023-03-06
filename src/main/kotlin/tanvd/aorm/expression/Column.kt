@@ -1,8 +1,9 @@
 package tanvd.aorm.expression
 
-import ru.yandex.clickhouse.ClickHouseUtil
+
 import tanvd.aorm.DbType
 import tanvd.aorm.Table
+import tanvd.aorm.utils.ClickHouseUtil
 
 class Column<E : Any, out T : DbType<E>>(val name: String, type: T, val table: Table,
                                          default: (() -> E)? = null) : Expression<E, T>(type) {

@@ -14,7 +14,7 @@ abstract class AormTestBase {
     companion object {
         const val testInsertWorkerDelayMs = 2000L
 
-        val serverContainer = object : ClickHouseContainer("clickhouse/clickhouse-server:22.3.8.39-alpine") {
+        val serverContainer = object : ClickHouseContainer("clickhouse/clickhouse-server:22.12.4.76-alpine") {
             override fun getDriverClassName(): String = "com.clickhouse.jdbc.ClickHouseDriver"
         }.apply {
             start()

@@ -1,7 +1,8 @@
 package tanvd.aorm.expression
 
-import ru.yandex.clickhouse.ClickHouseUtil
+
 import tanvd.aorm.*
+import tanvd.aorm.utils.ClickHouseUtil
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
